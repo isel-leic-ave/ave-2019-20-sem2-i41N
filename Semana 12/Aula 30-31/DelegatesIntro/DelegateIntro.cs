@@ -68,6 +68,7 @@ namespace DelegatesIntro
             ga(99);
             ga.Invoke(99);
 
+       
             //
             // Associate lambda
             //
@@ -75,7 +76,7 @@ namespace DelegatesIntro
             // Simpler syntax, without calling new Action
             //Action lambda = (int i) => Console.WriteLine("Lambda, i = {0}", i);
 
-            Action lambda = i => Console.WriteLine("Lambda, i = {0}", i);
+            //Action lambda = i => Console.WriteLine("Lambda, i = {0}", i);
             //Action lambda = i => { Console.WriteLine("Lambda, i = {0}", i); return 0; }; // Error
             /////////////////////////////////////////
             //Action lambda1 = i => obj.MInstance(i);
@@ -95,6 +96,9 @@ namespace DelegatesIntro
             //    Action lambda1 = xpto.Anonymous1; 
             //
 
+            //
+            // COMMENT/UNCOMMENT
+            //
             XPTO xpto = new XPTO();
             // Capture variable "obj"
             xpto.obj = obj;

@@ -32,7 +32,7 @@ namespace DelegatesIntro
         public static bool isEven(int elem) {
             return elem % 2 == 0;
         }
-        public static void Main1()
+        public static void Main()
         {
             int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             //int c = Filter<int>.Count(arr, (int elem) => elem % 2 == 0);
