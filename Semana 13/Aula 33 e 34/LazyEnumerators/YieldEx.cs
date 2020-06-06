@@ -12,8 +12,10 @@ namespace LazyEnumerators
                 yield return i;
             }
         }
-        public static void Main1() {
+        public static void Main() {
             Until();
+            Console.WriteLine("End...");
+
             for (IEnumerator<int> ie = Until(); ie.MoveNext(); )
             {
                 Console.Write(ie.Current + " ");
