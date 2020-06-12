@@ -16,10 +16,39 @@ namespace Exercicio_01
             int i = new int();
             //a = null;
             a = default(T1); // Se for class -> null;se value type -> new ctor()
+
+            //T1 b = MyDefault<T1>(typeof(T1));
+            T1 b = (T1)MyDefault<T1>();
+
             // e.g. new int()
             //a = new T1(); // Nao ha garantia que existe ctor T1()
         }
+
+        // 1a Tentativa
+        //public T MyDefault<T>(T obj)
+        // 2a Tentativa - Funciona se passar typeof(T1)
+        //public T MyDefault<T>(Type t) {
+        //    return default();
+        //}
+        // 3a Tentativa
+        public object MyDefault<T>() {
+            Type t = typeof(T);
+            return (t.IsValueType ? Activator.CreateInstance(t) : null);
+        }
+
     }
+
+
+    class Test {
+        public static void Main1() {
+            //B<int, bool> b = new B<int, bool>();
+            //b.m(10);
+            B<Test, bool> b = new B<Test, bool>();
+            b.m(new Test());
+        }
+    }
+
+
 
     #region
     class MyList<T> : List<T> {
@@ -122,16 +151,16 @@ namespace Exercicio_01
         }
 
 
-        static void Main1(string[] args)
+        static void Main(string[] args)
         {
-            //List<int> l = new List<int>(new int[] { 12, 2, 1, 3, 16, 9, 23 });
+            ////List<int> l = new List<int>(new int[] { 12, 2, 1, 3, 16, 9, 23 });
             MyList<int> l = new MyList<int>(new int[] { 12, 2, 1, 3, 16, 9, 23 });
 
-            PrintValuesUnder10(l);
-            Console.WriteLine();
+            //PrintValuesUnder10(l);
+            //Console.WriteLine();
 
-            PrintValuesUnderLimit(l, 20);
-            Console.WriteLine();
+            //PrintValuesUnderLimit(l, 20);
+            //Console.WriteLine();
 
             //int c = CountIf<int>(new int[] { 12, 2, 1, 3, 16, 9, 23 }, delegate(int i) { return i >= 10;  });
             //Console.WriteLine("counted {0} elems", c);

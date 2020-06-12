@@ -38,7 +38,7 @@ namespace Generics
     }
 
     class Test {
-        public static void Main() {
+        public static void Main1() {
             Derived derived = new Derived();
             Dummy<Derived> d = new Dummy<Derived>(derived);
 
